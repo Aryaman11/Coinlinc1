@@ -1,0 +1,22 @@
+# .gitignore file
+# This file tells Git which files and directories to ignore when tracking changes
+# This is crucial for security and keeping your repository clean
+
+# Environment variables file - contains sensitive information like API keys and passwords
+# Should never be committed to version control
+.env
+
+# Node.js dependencies directory
+# Contains all installed npm packages
+# Should be ignored as it can be recreated using package.json
+node_modules/
+
+# Logs directory
+# Contains application logs
+# Should be ignored as logs are environment-specific and can be large
+logs/
+
+# All log files
+# Ignores any file with .log extension
+# Logs should not be tracked as they are environment-specific and can be large
+*.log
