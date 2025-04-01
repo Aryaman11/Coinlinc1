@@ -76,13 +76,11 @@ transporter.verify(function(error, success) {
 app.post('/api/contact', async (req, res) => {
     try {
         // Extract form data from request body
-        const { name, email, message } = req.body;
-
-        // Log the received data for debugging
-        console.log('Received contact form submission:', { name, email, message });
+        const { name, email, profession, message } = req.body;
+        console.log('Received contact form submission:', { name, email, profession, message });
 
         // Validate required fields
-        if (!name || !email || !message) {
+        if (!name || !email || !profession || !message) {
             console.log('Validation failed: Missing required fields');
             return res.status(400).json({
                 success: false,
@@ -108,12 +106,14 @@ app.post('/api/contact', async (req, res) => {
             text: `
                 Name: ${name}
                 Email: ${email}
+                Profession: ${profession}
                 Message: ${message}
             `,
             html: `
                 <h3>New Contact Form Submission</h3>
                 <p><strong>Name:</strong> ${name}</p>
                 <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Profession:</strong> ${profession}</p>
                 <p><strong>Message:</strong> ${message}</p>
             `
         };
